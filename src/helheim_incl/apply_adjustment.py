@@ -18,8 +18,10 @@ def main():
 
     args = parser.parse_args()
 
-    msa_roll_params = pickle.loads(open(args.msa_roll_params,'rb'))
-    msa_pitch_params = pickle.loads(open(args.msa_pitch_params,'rb'))
+    with open(args.msa_roll_params, 'rb') as f:
+        msa_roll_params = pickle.load(f)
+    with open(args.msa_pitch_params, 'rb') as f:
+        msa_pitch_params = pickle.load(f)
 
     # LAZ and inclination filenames
     basename, _ = os.path.splitext(os.path.basename(args.laz_file))
@@ -32,7 +34,7 @@ def main():
     it, roll, pitch = get_incl(args.incl_file)
 
     # Optionally convert unadjusted points to UTM, save
-    if save_unadjusted:
+    if args.save_unadjusted:
         no_adj(np.copy(array), args.sop_file, args.pop_file, args.data_dir, basename)
 
     # Adjust points, convert to UTM, save

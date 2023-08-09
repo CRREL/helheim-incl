@@ -44,7 +44,7 @@ def filter_incl(incl, kernel_length=101):
     kernel = np.blackman(kernel_length)
     kernel = kernel / np.sum(kernel)
     # Pad roll and pitch signals
-    pad_width = np.int(kernel_length/2)
+    pad_width = int(kernel_length/2)
     start_pad = incl[0:pad_width]
     start_pad = np.flip(start_pad)
     start_pad = 2 * np.mean(start_pad[-10:]) - start_pad
