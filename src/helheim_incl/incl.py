@@ -13,7 +13,6 @@ def get_pnts(filename):
         }
     ]
     p = pdal.Pipeline(json.dumps(pdal_pipe))
-    p.validate()
     p.execute()
     arrays = p.arrays
     array = arrays[0]
@@ -106,7 +105,6 @@ def save_utm(filename, array):
         }
     ]
     p = pdal.Pipeline(json=json.dumps(pdal_pipe), arrays=[array,])
-    p.validate()
     p.execute()
 
 
@@ -198,7 +196,7 @@ def tr_warp_adj(array, it, roll, pitch,
         array["GpsTime"], array["X"], array["Y"], array["Z"],
         it, filtered_tr_roll, filtered_tr_pitch
     )
-    
+
     # Save warped points
     x, y, z = sop_pop_cloud(xw, yw, zw, sop_file)
     x, y, z = sop_pop_cloud(x, y, z, pop_file)
@@ -209,7 +207,7 @@ def tr_warp_adj(array, it, roll, pitch,
 
     outfilename = data_dir + "/" + basename + "-msatrendrem-warped-utm.laz"
     save_utm(outfilename, array)
- 
+
     # Save detrended and filtered detrended inclination
     ext = "-incl-msatrendrem.txt"
     save_incl(it, tr_roll, tr_pitch, data_dir, basename, ext)
