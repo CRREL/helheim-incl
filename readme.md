@@ -1,4 +1,4 @@
-# Helheim Inclination 
+# Helheim Inclination
 A script to apply scanner inclination data to ATLAS North and South point clouds. Vertical repeatability improvement is in the 50% range, with extreme examples showing up to 90% improvement.
 
 
@@ -43,11 +43,17 @@ Notes:
 ## 3. Use
 You will need a directory containing MTA'd RXP files.
 
+### Old usage
 1. Build and install Pete's [rivlib-utils](https://github.com/gadomski/rivlib-utils) on your machine. Change the `false` argument to `true` on line #10 in the source file `inclination.cpp` before building. This changes the timestamps from internal time to GPS time.
 2. Copy the `rxp2incl.sh` script to your MTA directory and run to extract inclination data from the RXP files. Text files containing time, roll, and pitch (units are GPS time seconds and degrees) will be saved into the RXP directory with "-incl" appended to the source RXP filenames.
 3. Copy the `rxp2laz.sh` script to your MTA directory and run to extract and save point cloud data from the MTA RXP files. You will need PDAL with the RXP reader plugin.
 4. Edit the user input at the top of the `main.py` script and run to apply the inclination files created in step #2 above to the LAZ files created in step #3 above. Prior to application of the inclination data, the trend of the SOP MSA scan inclination is first removed. New point cloud LAZ files will be created with the coordinates in UTM.
 
+### New usage
+1. Build and install Pete's [rivlib-utils](https://github.com/gadomski/rivlib-utils) on your machine. Change the `false` argument to `true` on line #10 in the source file `inclination.cpp` before building. This changes the timestamps from internal time to GPS time.
+2. Extract the inclination from the base file `ri-inclination base-file.rxp base-file-incl.txt`
+3. Generate LAS data `pdal pipeline ...`
+4. Apply inclination model  `apply-diurnal-adjustment msa_roll_params.p msa_pitch_params.p /path/to/output path-to-SOP.dat path-to-POP.dat file-to-process.laz file-to-process-incl.txt`
 
 ## 4. Typical Sample Profiles
 

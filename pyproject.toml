@@ -1,0 +1,24 @@
+[project]
+name = "helheim-incl"
+requires-python = ">=3.7"
+dependencies = [
+    "scipy",
+    "PDAL",
+    "numpy"
+]
+version =  "0.0.1"
+
+[tool.setuptools]
+package-dir = {"" =  "src"}
+zip-safe = false
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+apply-diurnal-adjustment = "helheim_incl.apply_adjustment:main"
+extract-diurnal-adjustment = "helheim_incl.extract_adjustment:main"
+
+
+
