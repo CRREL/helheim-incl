@@ -2,6 +2,7 @@ import json
 import numpy as np
 from scipy import optimize
 import pdal
+import pickle
 
 
 def get_pnts(filename):
