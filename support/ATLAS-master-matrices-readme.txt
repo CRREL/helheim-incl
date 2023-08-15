@@ -1,4 +1,4 @@
-Readme file for ATLAS master matrices (10/15/2019, LeWinter)
+Readme file for ATLAS master matrices (2023-08-09, LeWinter)
 
 POP:
 The POP brings points into EPSG:7789, ITRF2014 geocentric.
@@ -26,9 +26,12 @@ Start: 180727_220154.rxp
 End: 190804_070155.rxp
 
 SOP Matrix: ATLAS-South-201908-SOP.dat
-Start: N/A
-End: N/A
+Start: 190805_014845.rxp
+End: 220907_070156.rxp
 
+SOP Matrix: ATLAS-South-220907-SOP.dat
+Start: 220907_220246.rxp
+End: N/A
 
 ATLAS North SOP Data Ranges
 
@@ -37,5 +40,9 @@ Start: 180731_110237.rxp
 End: 180928_180240.rxp
 
 SOP Matrix: ATLAS-North-201908-SOP.dat
-Start: N/A
+Start: 190809_000230.rxp
+End: 191215_121054.rxp
+
+SOP Matrix: ATLAS-North-220909-SOP.dat
+Start: 220909_000214.rxp
 End: N/A
