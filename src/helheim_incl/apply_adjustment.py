@@ -27,7 +27,7 @@ def main():
     basename, _ = os.path.splitext(os.path.basename(args.laz_file))
 
 
-    print("Processing {}".format(args.laz_file))
+    #print("Processing {}".format(args.laz_file))
 
     # Read in point and inclination data
     array = get_pnts(args.laz_file)
@@ -38,9 +38,10 @@ def main():
         no_adj(np.copy(array), args.sop_file, args.pop_file, args.data_dir, basename)
 
     # Adjust points, convert to UTM, save
-    tr_warp_adj(array, it, roll, pitch,
+    filename = tr_warp_adj(array, it, roll, pitch,
                 msa_roll_params, msa_pitch_params,
                 args.sop_file, args.pop_file, args.data_dir, basename)
+    print(filename)
 
 if __name__=='__main__':
 

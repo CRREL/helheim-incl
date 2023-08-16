@@ -206,7 +206,7 @@ def tr_warp_adj(array, it, roll, pitch,
     array["Y"] = y
     array["Z"] = z
 
-    outfilename = data_dir + "/" + basename + "-msatrendrem-warped-utm.laz"
+    outfilename = data_dir + "/" + basename + "-msatrendrem-warped-utm.las"
     save_utm(outfilename, array)
 
     # Save detrended and filtered detrended inclination
@@ -214,6 +214,7 @@ def tr_warp_adj(array, it, roll, pitch,
     save_incl(it, tr_roll, tr_pitch, data_dir, basename, ext)
     ext = "-incl-msatrendrem-filtered.txt"
     save_incl(it, filtered_tr_roll, filtered_tr_pitch, data_dir, basename, ext)
+    return outfilename
 
 
 def no_adj(array, sop_file, pop_file, data_dir, basename):

@@ -8,7 +8,7 @@ import pickle
 def main():
     import argparse
 
-    parser = argparse.ArgumentParser(description="Extract STAC catalog for USGS 3DEP EPT PDS")
+    parser = argparse.ArgumentParser(description="Extract MSA monuments ")
     parser.add_argument("msa_pnts_file", type=str, help="LAS file to apply corrections to")
     parser.add_argument("msa_incl_file", type=str, help="Text file produced from ri-inclination from MTAd LAZ file")
 
